@@ -1,0 +1,81 @@
+null
+true
+false
+1
+0.1
+-0.1
+10.1
+-10.1
+-10E-1
+-10e+1
+10E-1
+10e+1
+"true"
+"tru\"e"
+"tru\\e"
+"tru\be"
+"tru\fe"
+"tru\ne"
+"tru\re"
+"tru\te"
+"tru\u0123e"
+"汉语 / 漢語; Hàn\b \t\uef24yǔ "
+"a\u1234"
+"http:\/\/"
+"invalid: \uD834x\uDD1E"
+"\"foobar\"\u003chtml\u003e [\u2028 \u2029]"
+ [  ] 
+[]
+ [ null, true, false, 10, "tru\"e" ] 
+[{}]
+ { "a": null, "b" : true,"c":false, "d\"":10, "e":"tru\"e" } 
+ {  } 
+{}
+true
+1
+1.2
+-5
+2
+2
+2
+2
+"null"
+{"X": [1,2,3], "Y": 4}
+{"x": 1}
+{"F1":1,"F2":2,"F3":3}
+{"F1":1,"F2":2,"F3":3}
+{"k1":1,"k2":"s","k3":[1,2.0,3e-3],"k4":{"kk1":"s","kk2":2}}
+{"k1":1,"k2":"s","k3":[1,2.0,3e-3],"k4":{"kk1":"s","kk2":2}}
+"\n true "
+"\t 1 "
+"\r 1.2 "
+"\t -5 \n"
+"\t \"a\\u1234\" \n"
+{"Y": 1, "Z": 2}
+{"alpha": "abc", "alphabet": "xyz"}
+{"alpha": "abc"}
+{"alphabet": "xyz"}
+[1, 2, 3]
+[1, 2, 3]
+[1, 2, 3]
+[]
+null
+{"T":[]}
+{"T":null}
+{"T":false}
+{"T":false}
+[{"T":false}]
+[{"T":false}]
+{"M":{"T":false}}
+"X"
+"X"
+["X"]
+["X"]
+{"M":"X"}
+{"hello": 1}
+{"X": 1,"Y":2}
+{"X": 1,"Y":2}
+"hello\\ud800world"
+"hello\\ud800\\ud800world"
+"hello\\ud800\\ud800world"
+{"2009-11-10T23:00:00Z": "hello world"}

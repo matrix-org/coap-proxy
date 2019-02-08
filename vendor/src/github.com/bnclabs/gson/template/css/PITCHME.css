@@ -1,0 +1,351 @@
+/* Intro Template Styles */
+
+.headline {
+  font-size: 2.5em !important;
+  font-weight: bold !important;
+}
+
+.byline {
+  letter-spacing: 0.1em;
+  font-size: 0.6em !important;
+}
+
+/* Split-Screen Template Styles */
+
+.split-screen-heading {
+  font-size: 1.7em !important;
+  font-weight: bold !important;
+}
+
+.split-screen-byline {
+  width: 35%;
+  font-size: 1.1em !important;
+}
+
+.split-screen-text {
+  width: 30%;
+  text-align: center;
+  font-size: 0.8em !important;
+}
+
+.split-screen-img {
+  width: 35%;
+}
+
+.split-screen-img img {
+  border-radius: 8% !important;
+}
+
+.split-screen-list li {
+  font-size: 0.8em;
+  margin:0 0 40px 0;
+}
+
+.split-screen-list li::before {
+  color: #FF5600 !important;
+  background-color: white !important;
+}
+
+/* List-Content Template Styles */
+
+.list-content-concise li {
+  font-size: 1em;
+  margin:0 0 10px 0;
+}
+
+.list-content-verbose ul {
+  list-style-type: square;
+}
+
+.list-content-verbose li {
+  font-size: 0.8em;
+  margin:0 0 40px 0;
+}
+
+.list-bullets-black li::before {
+  background-color: black !important;
+}
+
+.list-bullets-circles {
+  list-style-type: circle !important;
+}
+
+
+/** Image Template Styles ***/
+
+/** Sidebox Template Styles ***/
+
+/** Code-Presenting Template Styles ***/
+
+/** Header-Footer Template Styles ***/
+
+.header-footer-list-shrink li {
+  color: white;
+  font-size: 0.7em;
+  margin:0 0 20px 0;
+}
+
+/** Quotation Template Styles ***/
+
+/** Announcements Template Styles ***/
+
+.announce-big-news {
+  font-size: 7em !important;
+}
+
+.announce-coming-soon {
+  font-size: 6.5em !important;
+}
+
+/** About Template Styles **/
+
+.about-team-pic img {
+  width: 60%;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-clip-path: circle(35% at 50% 50%);
+  clip-path: circle(35% at 50% 50%);
+}
+
+.about-team-pic-center img {
+  width: 70%;
+}
+
+.about-team-bio {
+  font-size: 0.6em !important;
+}
+
+.about-bio-details {
+  font-size: 0.8em !important;
+}
+
+/** Wrap-Up Template Styles **/
+
+.contact-name {
+  font-size: 0.6em !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.contact-email {
+  font-size: 0.5em !important;
+  font-weight: 600 !important;
+}
+
+.contact-links {
+  color: #00008B !important;
+}
+
+.twitter-handle {
+  font-size: 0.5em !important;
+  font-weight: bolder !important;
+  vertical-align: middle !important;
+}
+
+.git-handle {
+  font-size: 0.5em !important;
+  font-weight: bolder !important;
+  vertical-align: middle !important;
+}
+
+.pad-right-icon {
+  padding-right: 0.4em;
+}
+
+.pad-left-icon {
+  padding-left: 0.4em;
+}
+
+/** General Template Styles **/
+
+.text-black  { color: #000000 !important; }
+.text-blue   { color: #4487F2 !important; }
+.text-gray   { color: #777777 !important; }
+.text-green  { color: #8EA33B !important; }
+.text-orange { color: #F26225 !important; }
+.text-pink   { color: #E71E60 !important; }
+.text-purple { color: #643B85 !important; }
+.text-yellow { color: #F5DB2E !important; }
+.text-white  { color: #FFFFFF !important; }
+
+.template-note {
+  letter-spacing: 0.1em;
+  font-size: 0.4em !important;
+}
+
+.docslink {
+  color: #a49436;
+  font-size: 0.5em !important;
+  font-variant: small-caps !important;
+  letter-spacing: 0.2em;
+}
+
+#gp-logo img {
+  max-height: 3.5em;
+  max-width: none;
+}
+
+#title-footer a {
+  color: black;
+}
+
+#title-footer p.footer-hard {
+   color: black;
+}
+
+.span-5  { width:  5% }
+.span-10 { width: 10% }
+.span-15 { width: 15% }
+.span-20 { width: 20% }
+.span-25 { width: 25% }
+.span-30 { width: 30% }
+.span-35 { width: 35% }
+.span-40 { width: 40% }
+.span-45 { width: 45% }
+.span-50 { width: 50% }
+.span-55 { width: 55% }
+.span-60 { width: 60% }
+.span-65 { width: 65% }
+.span-70 { width: 70% }
+.span-75 { width: 75% }
+.span-80 { width: 80% }
+.span-85 { width: 85% }
+.span-90 { width: 90% }
+.span-95 { width: 95% }
+.span-100 { width: 100% }
+
+
+/** Reveal.js Core Override Styles **/
+
+.reveal ol {
+    text-align: left;
+    font-size: 0.75em;
+}
+.reveal ol li {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+.reveal ol li {
+  position: relative;
+  counter-increment: step-counter;
+}
+
+.reveal ol li::before {
+  color: white;
+  font-size: 80%;
+  font-weight: bold;
+  padding: 3px 10px;
+  margin-right: 15px;
+  border-radius: 3px;
+  background-color: #F26225;
+  content: counter(step-counter);
+}
+
+.reveal section img {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.reveal .slide-number {
+  color: black !important;
+}
+
+.reveal blockquote {
+    width: 100%;
+    padding: 17px;
+    border-radius: 17px;
+    background: rgba(255,255,255,0.2);
+}
+
+.reveal pre {
+  width: 98%;
+  margin: 0px;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  font-size: 1.2em;
+  line-height: 1.2;
+  border-radius: 10px;
+  max-height: 60vh !important;
+  overflow: hidden !important;
+}
+
+@media (device-width: 100vw) and (device-height: 100vh) {
+  .reveal pre code {
+    max-height: 50vh !important;
+  }
+}
+
+.hljs {
+  background: none;
+}
+
+.reveal p span.slide-title {
+  display: none;
+}
+
+.reveal .slides section .code-presenting-annotation {
+  color: white;
+  background: black;
+  padding: 0px 15px;
+  border-radius: 15px;
+  opacity: 0.75 !important;
+  font-size: 50% !important;
+}
+
+/* golog */
+.reveal .slides {
+    text-align: left !important;
+}
+.reveal h1 {
+    font-size: 1.7em !important;
+    text-align: left !important;
+    color: crimson !important;
+}
+.reveal p {
+    text-align: left !important;
+    font-size: 0.75em !important;
+}
+.reveal ul {
+    text-align: left !important;
+    font-size: 0.75em !important;
+}
+.text-crimson {
+    color: crimson !important;
+}
+.author-box {
+    font-size: 50% !important;
+    text-align: left;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none !important;
+}
+div.slide1 h1 {
+    text-align: center !important;
+}
+code.hljs {
+    font-size: 90% !important;
+    background: #F0F0F0 !important;
+}
+.reveal .slides section .code-presenting-annotation {
+    background: #303030 !important;
+    padding: 10px !important;
+    margin: 100px 0px !important;
+    font-size: 70% !important;
+}
+.mt20 {
+    margin-top: 20px !important;
+}
+ul.para {
+    margin: 20px 0px !important;
+    list-style-type: none !important;
+    text-align: left !important;
+}
+.text-left {
+    text-align: left !important;
+}

@@ -1,0 +1,246 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/bnclabs/gson",
+			"repository": "https://github.com/bnclabs/gson",
+			"revision": "71739fac98d67302ffcba5d3528b27f1838c1b19",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/crossdock/crossdock-go",
+			"repository": "https://github.com/crossdock/crossdock-go",
+			"revision": "049aabb0122b03bc9bd30cab8f3f91fb60166361",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/davecgh/go-spew/spew",
+			"repository": "https://github.com/davecgh/go-spew",
+			"revision": "d8f796af33cc11cb798c1aaeb27a4ebc5099927d",
+			"branch": "master",
+			"path": "/spew"
+		},
+		{
+			"importpath": "github.com/emef/bitfield",
+			"repository": "https://github.com/emef/bitfield",
+			"revision": "7d3f8f823065621514a56dd465e86a684eaa5d07",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/flynn/noise",
+			"repository": "https://github.com/flynn/noise",
+			"revision": "2492fe189ae688d7edbeae0fd575de2f1c5fec8e",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/matrix-org/go-coap",
+			"repository": "https://github.com/matrix-org/go-coap",
+			"revision": "cbefc9850b7c2c660199e0a3064409c987171a81",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/opentracing/opentracing-go",
+			"repository": "https://github.com/opentracing/opentracing-go",
+			"revision": "be550b025b433cdfa2f11efb962afa2ea3c4d967",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pkg/errors",
+			"repository": "https://github.com/pkg/errors",
+			"revision": "059132a15dd08d6704c67711dae0cf35ab991756",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pmezard/go-difflib/difflib",
+			"repository": "https://github.com/pmezard/go-difflib",
+			"revision": "792786c7400a136282c1664665ae0a8db921c6c2",
+			"branch": "master",
+			"path": "/difflib"
+		},
+		{
+			"importpath": "github.com/uber/jaeger-client-go",
+			"repository": "https://github.com/uber/jaeger-client-go",
+			"revision": "c58709fe19d793cdd40ad8bfa6e645a40a2eccf8",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/uber/jaeger-lib/metrics",
+			"repository": "https://github.com/uber/jaeger-lib",
+			"revision": "1fc5c315e03c871d98a3df762234414d185115d7",
+			"branch": "master",
+			"path": "/metrics"
+		},
+		{
+			"importpath": "github.com/ugorji/go/codec",
+			"repository": "https://github.com/ugorji/go",
+			"revision": "856da096dbdf68ec809a132c863f3d7e3f40b09f",
+			"branch": "master",
+			"path": "/codec"
+		},
+		{
+			"importpath": "go.uber.org/atomic",
+			"repository": "https://github.com/uber-go/atomic",
+			"revision": "8dc6146f7569370a472715e178d8ae31172ee6da",
+			"branch": "master"
+		},
+		{
+			"importpath": "go.uber.org/multierr",
+			"repository": "https://github.com/uber-go/multierr",
+			"revision": "ddea229ff1dff9e6fe8a6c0344ac73b09e81fce5",
+			"branch": "master"
+		},
+		{
+			"importpath": "go.uber.org/zap",
+			"repository": "https://github.com/uber-go/zap",
+			"revision": "67bc79d13d155c02fd008f721863ff8cc5f30659",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/crypto/blake2b",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/blake2b"
+		},
+		{
+			"importpath": "golang.org/x/crypto/blake2s",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/blake2s"
+		},
+		{
+			"importpath": "golang.org/x/crypto/chacha20poly1305",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/chacha20poly1305"
+		},
+		{
+			"importpath": "golang.org/x/crypto/curve25519",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/curve25519"
+		},
+		{
+			"importpath": "golang.org/x/crypto/internal/chacha20",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/internal/chacha20"
+		},
+		{
+			"importpath": "golang.org/x/crypto/internal/subtle",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/internal/subtle"
+		},
+		{
+			"importpath": "golang.org/x/crypto/poly1305",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
+			"branch": "master",
+			"path": "/poly1305"
+		},
+		{
+			"importpath": "golang.org/x/net/bpf",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/bpf"
+		},
+		{
+			"importpath": "golang.org/x/net/context",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/context"
+		},
+		{
+			"importpath": "golang.org/x/net/internal/iana",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/internal/iana"
+		},
+		{
+			"importpath": "golang.org/x/net/internal/socket",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/internal/socket"
+		},
+		{
+			"importpath": "golang.org/x/net/ipv4",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/ipv4"
+		},
+		{
+			"importpath": "golang.org/x/net/ipv6",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "adae6a3d119ae4890b46832a2e88a95adc62b8e7",
+			"branch": "master",
+			"path": "/ipv6"
+		},
+		{
+			"importpath": "golang.org/x/sys/cpu",
+			"repository": "https://go.googlesource.com/sys",
+			"revision": "4ed8d59d0b35e1e29334a206d1b3f38b1e5dfb31",
+			"branch": "master",
+			"path": "/cpu"
+		},
+		{
+			"importpath": "golang.org/x/text/collate",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/collate"
+		},
+		{
+			"importpath": "golang.org/x/text/internal/colltab",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/internal/colltab"
+		},
+		{
+			"importpath": "golang.org/x/text/internal/language",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/internal/language"
+		},
+		{
+			"importpath": "golang.org/x/text/internal/tag",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/internal/tag"
+		},
+		{
+			"importpath": "golang.org/x/text/language",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/language"
+		},
+		{
+			"importpath": "golang.org/x/text/transform",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/transform"
+		},
+		{
+			"importpath": "golang.org/x/text/unicode/norm",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2",
+			"branch": "master",
+			"path": "/unicode/norm"
+		}
+	]
+}

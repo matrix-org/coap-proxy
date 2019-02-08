@@ -1,0 +1,20 @@
+digraph value {
+    ranksep="0.5 equally";
+    node [style=filled,shape=ellipse,fontsize="20",color=yellow];
+    edge [fontsize="16",minlen=2,weight=9];
+
+    json -> value[label="  JsonToValue  ",color="red",labeldistance=20];
+    value -> json[label="  ValueToJson  ",color="red",labeldistance=20];
+    value -> cbor[label="  ValueToCbor  ",color="red",labeldistance=20];
+    cbor -> value[label="  CborToValue  ",color="red",labeldistance=20];
+    json -> cbor[label="  JsonToCbor  ",color="red",labeldistance=20];
+    cbor -> json[label="  CborToJson  ",color="red",labeldistance=20];
+    collate -> value[label="  CollateToValue  ",color="red",labeldistance=20];
+    value -> collate[label="  ValueToCollate  ",color="red",labeldistance=20];
+    collate -> json[label="  CollateToJson  ",color="red",labeldistance=20];
+    json -> collate[label="  JsonToCollate  ",color="red",labeldistance=20];
+    collate -> cbor[label="  CollateToCbor  ",color="red",labeldistance=20];
+    cbor -> collate[label="  CborToCollate  ",color="red",labeldistance=20];
+    {rank=same; value; json};
+    {rank=same; cbor; collate};
+}

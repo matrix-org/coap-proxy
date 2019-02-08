@@ -1,0 +1,71 @@
+RFCs related to JSON specification
+----------------------------------
+
+6901 JavaScript Object Notation (JSON) Pointer. P. Bryan, Ed., K. Zyp, M.
+     Nottingham, Ed.. April 2013. (Format: TXT=13037 bytes) (Status:
+     PROPOSED STANDARD) (DOI: 10.17487/RFC6901) 
+
+6902 JavaScript Object Notation (JSON) Patch. P. Bryan, Ed., M.
+     Nottingham, Ed.. April 2013. (Format: TXT=26405 bytes) (Status:
+     PROPOSED STANDARD) (DOI: 10.17487/RFC6902) 
+
+7049 Concise Binary Object Representation (CBOR). C. Bormann, P. Hoffman.
+     October 2013. (Format: TXT=134062 bytes) (Status: PROPOSED STANDARD)
+     (DOI: 10.17487/RFC7049) 
+
+7095 jCard: The JSON Format for vCard. P. Kewisch. January 2014. (Format:
+     TXT=59088 bytes) (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7095) 
+
+7159 The JavaScript Object Notation (JSON) Data Interchange Format. T.
+     Bray, Ed.. March 2014. (Format: TXT=27451 bytes) (Obsoletes RFC4627,
+     RFC7158) (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7159) 
+
+7165 Use Cases and Requirements for JSON Object Signing and Encryption
+     (JOSE). R. Barnes. April 2014. (Format: TXT=58324 bytes) (Status:
+     INFORMATIONAL) (DOI: 10.17487/RFC7165) 
+
+7265 jCal: The JSON Format for iCalendar. P. Kewisch, C. Daboo, M.
+     Douglass. May 2014. (Format: TXT=56274 bytes) (Updated by RFC7529)
+     (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7265) 
+
+7396 JSON Merge Patch. P. Hoffman, J. Snell. October 2014. (Format:
+     TXT=12791 bytes) (Obsoletes RFC7386) (Status: PROPOSED STANDARD)
+     (DOI: 10.17487/RFC7396) 
+
+7464 JavaScript Object Notation (JSON) Text Sequences. N. Williams.
+     February 2015. (Format: TXT=16132 bytes) (Status: PROPOSED STANDARD)
+     (DOI: 10.17487/RFC7464) 
+
+7485 Inventory and Analysis of WHOIS Registration Objects. L. Zhou, N.
+     Kong, S. Shen, S. Sheng, A. Servin. March 2015. (Format: TXT=74392
+     bytes) (Status: INFORMATIONAL) (DOI: 10.17487/RFC7485) 
+
+7493 The I-JSON Message Format. T. Bray, Ed.. March 2015. (Format:
+     TXT=12849 bytes) (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7493) 
+
+7515 JSON Web Signature (JWS). M. Jones, J. Bradley, N. Sakimura. May
+     2015. (Format: TXT=131110 bytes) (Status: PROPOSED STANDARD) (DOI:
+     10.17487/RFC7515) 
+
+7516 JSON Web Encryption (JWE). M. Jones, J. Hildebrand. May 2015.
+     (Format: TXT=108322 bytes) (Status: PROPOSED STANDARD) (DOI:
+     10.17487/RFC7516) 
+
+7517 JSON Web Key (JWK). M. Jones. May 2015. (Format: TXT=93906 bytes)
+     (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7517) 
+
+7518 JSON Web Algorithms (JWA). M. Jones. May 2015. (Format: TXT=155905
+     bytes) (Status: PROPOSED STANDARD) (DOI: 10.17487/RFC7518) 
+
+7519 JSON Web Token (JWT). M. Jones, J. Bradley, N. Sakimura. May 2015.
+     (Format: TXT=63039 bytes) (Status: PROPOSED STANDARD) (DOI:
+     10.17487/RFC7519) 
+
+7520 Examples of Protecting Content Using JSON Object Signing and
+     Encryption (JOSE). M. Miller. May 2015. (Format: TXT=198174 bytes)
+     (Status: INFORMATIONAL) (DOI: 10.17487/RFC7520) 
+
+7523 JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and
+     Authorization Grants. M. Jones, B. Campbell, C. Mortimore. May 2015.
+     (Format: TXT=26459 bytes) (Status: PROPOSED STANDARD) (DOI:
+     10.17487/RFC7523) 

@@ -1,0 +1,42 @@
+{
+   "gravatar_id" : "",
+   "friends" : [],
+   "projects" : {
+      "Sherri" : {
+         "members" : [
+            "Sangho"
+         ],
+         "language" : "python",
+         "type" : "project"
+      }
+   },
+   "subscriptions_url" : "https://api.github.com/users/ExaPaw/subscriptions",
+   "organizations_url" : "https://api.github.com/users/ExaPaw/orgs",
+   "gists_url" : "https://api.github.com/users/ExaPaw/gists{/gist_id}",
+   "followers_url" : "https://api.github.com/users/ExaPaw/followers",
+   "created_at" : "2015-01-07T17:33:10Z",
+   "site_admin" : false,
+   "following_url" : "https://api.github.com/users/ExaPaw/following{/other_user}",
+   "url" : "https://api.github.com/users/ExaPaw",
+   "public_gists" : 0,
+   "id" : 10438397,
+   "following" : 0,
+   "followers" : 0,
+   "starred_url" : "https://api.github.com/users/ExaPaw/starred{/owner}{/repo}",
+   "avatar_url" : "https://avatars.githubusercontent.com/u/10438397?v=3",
+   "repos_url" : "https://api.github.com/users/ExaPaw/repos",
+   "login" : "ExaPaw",
+   "updated_at" : "2015-04-18T09:31:26Z",
+   "html_url" : "https://github.com/ExaPaw",
+   "events_url" : "https://api.github.com/users/ExaPaw/events{/privacy}",
+   "received_events_url" : "https://api.github.com/users/ExaPaw/received_events",
+   "type" : "User",
+   "team" : [
+      "mkg",
+      "mlk",
+      "lt"
+   ],
+   "public_repos" : 2,
+   "~/some/path" : null,
+   "汉语 / 漢語" : "汉语 / 漢語; Hàn\b \t\uef24yǔ "
+}

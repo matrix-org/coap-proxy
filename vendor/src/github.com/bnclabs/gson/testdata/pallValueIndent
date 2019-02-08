@@ -1,0 +1,85 @@
+{
+	"Bool": false,
+	"Int": 0,
+	"Int8": 0,
+	"Int16": 0,
+	"Int32": 0,
+	"Int64": 0,
+	"Uint": 0,
+	"Uint8": 0,
+	"Uint16": 0,
+	"Uint32": 0,
+	"Uint64": 0,
+	"Uintptr": 0,
+	"Float32": 0,
+	"Float64": 0,
+	"bar": "",
+	"bar2": "",
+        "IntStr": "0",
+	"PBool": true,
+	"PInt": 2,
+	"PInt8": 3,
+	"PInt16": 4,
+	"PInt32": 5,
+	"PInt64": 6,
+	"PUint": 7,
+	"PUint8": 8,
+	"PUint16": 9,
+	"PUint32": 10,
+	"PUint64": 11,
+	"PUintptr": 12,
+	"PFloat32": 14.1,
+	"PFloat64": 15.1,
+	"String": "",
+	"PString": "16",
+	"Map": null,
+	"MapP": null,
+	"PMap": {
+		"17": {
+			"Tag": "tag17"
+		},
+		"18": {
+			"Tag": "tag18"
+		}
+	},
+	"PMapP": {
+		"19": {
+			"Tag": "tag19"
+		},
+		"20": null
+	},
+	"EmptyMap": null,
+	"NilMap": null,
+	"Slice": null,
+	"SliceP": null,
+	"PSlice": [
+		{
+			"Tag": "tag20"
+		},
+		{
+			"Tag": "tag21"
+		}
+	],
+	"PSliceP": [
+		{
+			"Tag": "tag22"
+		},
+		null,
+		{
+			"Tag": "tag23"
+		}
+	],
+	"EmptySlice": null,
+	"NilSlice": null,
+	"StringSlice": null,
+	"ByteSlice": null,
+	"Small": {
+		"Tag": ""
+	},
+	"PSmall": null,
+	"PPSmall": {
+		"Tag": "tag31"
+	},
+	"Interface": null,
+	"PInterface": 5.2
+}
