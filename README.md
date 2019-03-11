@@ -34,7 +34,8 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
      Instead we should probably be using CoAP's OSCORE rather than creating our own thing;
      see https://tools.ietf.org/id/draft-mattsson-lwig-security-protocol-comparison-00.html
    * Security is trust-on-first-use (although theoretically could support pre-shared static certificates)
- * coap-proxy is currently optimised to run under a private network (i.e. not the internet).  This means:
+ * coap-proxy currently assumes it runs under a trusted private network (i.e. not the internet).  This means:
+   * Signatures and checks are removed from the Matrix S2S API to save bandwidth (given the network is assumed trustworthy)
    * Minimal bandwidth depends on picking predictable compact hostnames which compress easily
      (e.g. synapse1, synapse2, synapse3...)
    * No work has yet been done on congestion control; the CoAP stack uses simple exponential backoff to retry connections.
@@ -144,6 +145,8 @@ is:
    should handshake after 180s of any pause of traffic.
 
 ## License
+
+Copyright 2019 New Vector Ltd
 
 This file is part of coap-proxy.
 
