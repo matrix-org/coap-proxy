@@ -54,7 +54,7 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
  * No IPv6 support.
 
 Development of coap-proxy is dependent on commercial interest - please contact
-`support at vector.im` if you're interested in using a production grade coap-proxy!
+`support at vector.im` if you're interested in a production grade coap-proxy!
 
 ## Build
 
