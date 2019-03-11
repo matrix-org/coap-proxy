@@ -48,9 +48,6 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
  * Encryption re-handshakes after network interruptions do not yet work.
    * After a sync timeout, the session cache is not updated with the source port of the new UDP flow,
      and so will try to send responses to the old source port.
-   * The session cache is not updated when new stuff goes through a conn that's been still for some time
-     (and basically in the meantime the session timed out and got recreated, but the proxy at the
-     receiving end tries to send the response to the old client port instead of the new one)
  * No IPv6 support.
 
 Development of coap-proxy is dependent on commercial interest - please contact
