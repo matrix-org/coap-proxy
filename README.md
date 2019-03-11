@@ -69,6 +69,16 @@ You can also use the `build-release.sh` script (which also requires `gb` to be
 installed) which provides a lighter binary and strips part of the hard-coded
 paths from it so it doesn't leak the project's full path in stack traces.
 
+**Note:** We've observed some build issues when building coap-proxy against Go
+1.12. If the build fails, re-building against Go 1.11 should fix it:
+
+```bash
+wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz # replace with the archive for your platform if necessary (see https://golang.org/dl/#go1.11.5)
+tar -xvf go1.11.linux-amd64.tar.gz
+rm -r pkg
+GOROOT=$PWD/go gb build
+```
+
 ## Run
 
 Once built, the proxy's binary is located in `bin/coap-proxy`. You can give it
