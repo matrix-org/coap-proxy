@@ -50,6 +50,7 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
    * After a sync timeout, the session cache is not updated with the source port of the new UDP flow,
      and so will try to send responses to the old source port.
  * No IPv6 support.
+ * access_tokens currently suck up bandwidth on every request. We should swap them out for PSKs or similar.
 
 Development of coap-proxy is dependent on commercial interest - please contact
 `support at vector.im` if you're interested in a production grade coap-proxy!
