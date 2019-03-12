@@ -24,7 +24,7 @@ server-server traffic.
 
 As a proof-of-concept, coap-proxy currently has some major limitations:
 
- * Encryption using [Noise](https://noise-protocol.org) is highly experimental:
+ * Encryption using [Noise](https://noiseprotocol.org) is highly experimental:
    * The transport layer security here is entirely custom and hand-wrapped
      (to optimise for bandwidth at any cost), and **should not yet be trusted
      as secure or production ready**, nor has it been audited or reviewed or fully tested.
