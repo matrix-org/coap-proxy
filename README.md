@@ -34,6 +34,8 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
      Instead we should probably be using CoAP's OSCORE rather than creating our own thing;
      see https://tools.ietf.org/id/draft-mattsson-lwig-security-protocol-comparison-00.html
    * Security is trust-on-first-use (although theoretically could support pre-shared static certificates)
+   * IK handshakes are currently not being used due to making go-coap's handshake state machine unreliable,
+     which needs to be investigated in the future
  * coap-proxy currently assumes it runs under a trusted private network (i.e. not the internet).  This means:
    * Signatures and checks are removed from the Matrix S2S API to save bandwidth (given the network is assumed trustworthy)
    * Minimal bandwidth depends on picking predictable compact hostnames which compress easily
