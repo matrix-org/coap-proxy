@@ -3,7 +3,7 @@
 ## Introduction
 
 coap-proxy is a **proof of concept experiment** for converting normal Matrix HTTPS+JSON
-traffic into an ultra-low-bandwidth CoAP+CBOR+Deflate+Noise+UDP network transport.
+traffic into an ultra-low-bandwidth CoAP+CBOR+Flate+Noise+UDP network transport.
 The resulting transport typically uses 35x-70x less bandwidth than HTTPS+JSON, and
 attempts to fit typical Matrix transactions into a single roundtrip on a 100bps network link.
 
