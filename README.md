@@ -12,8 +12,7 @@ which implements Noise-based encryption, compression hooks and retry semantics.
 
 More details on the transport can be found in our
 "Breaking the 100 bits per second barrier with Matrix" FOSDEM 2019 talk:
-https://fosdem.org/2019/schedule/event/matrix/ -
-[slides available here](https://matrix.org/blog/wp-content/uploads/2019/02/2019-02-03-FOSDEM-Low-Bandwidth.pdf)
+https://matrix.org/blog/2019/03/12/breaking-the-100bps-barrier-with-matrix-meshsim-coap-proxy/
 
 The typical way to run coap-proxy is via docker using the [meshsim](https://github.com/matrix-org/meshsim)
 network simulator, which fires up docker containers in a simulated bad network environment
