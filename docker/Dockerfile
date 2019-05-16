@@ -1,11 +1,9 @@
-FROM docker.io/golang:1.11.2-stretch
+FROM docker.io/golang:1.12.4-stretch
 
 COPY . /proxy
 WORKDIR /proxy
 
-RUN go get github.com/constabulary/gb/...
-
-RUN gb build
+RUN go build
 
 EXPOSE 8888/tcp 5683/udp
 
