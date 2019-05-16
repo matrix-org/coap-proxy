@@ -1,6 +1,8 @@
-/_test
-/_tmp
-/_obj
-/bin
-/pkg
-/vendor/pkg
+# Dev files
+.idea/
+
+# Built binary
+coap-proxy
+
+# Temporary test directory
+_tmp/
