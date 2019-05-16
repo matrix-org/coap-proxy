@@ -40,16 +40,15 @@ import (
 	"github.com/matrix-org/coap-proxy/common"
 	"github.com/matrix-org/coap-proxy/types"
 
-	coap "github.com/matrix-org/go-coap"
+	"github.com/matrix-org/go-coap"
 
-	// coap "github.com/go-ocf/go-coap"
-	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	olog "github.com/opentracing/opentracing-go/log"
 
 	"github.com/uber/jaeger-lib/metrics"
 
-	jaeger "github.com/uber/jaeger-client-go"
+	"github.com/uber/jaeger-client-go"
 	jaegercfg "github.com/uber/jaeger-client-go/config"
 	jaegerlog "github.com/uber/jaeger-client-go/log"
 )

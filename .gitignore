@@ -3,6 +3,7 @@
 
 # Built binary
 coap-proxy
+bin/
 
 # Temporary test directory
 _tmp/
