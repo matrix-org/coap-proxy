@@ -80,14 +80,15 @@ const (
 
 var (
 	// CLI flags
-	onlyCoAP   = flag.Bool("only-coap", false, "Only proxy CoAP requests to HTTP and not the other way around")
-	onlyHTTP   = flag.Bool("only-http", false, "Only proxy HTTP requests to CoAP and not the other way around")
-	debugLog   = flag.Bool("debug-log", false, "Output debug logs")
-	mapsDir    = flag.String("maps-dir", "maps", "Directory in which the JSON maps live")
-	coapTarget = flag.String("coap-target", "", "Force the host+port of the CoAP server to talk to")
-	httpTarget = flag.String("http-target", "http://127.0.0.1:8008", "Force the host+port of the HTTP server to talk to")
-	coapPort   = flag.String("coap-port", "5683", "The CoAP port to listen on")
-	httpPort   = flag.String("http-port", "8888", "The HTTP port to listen on")
+	onlyCoAP     = flag.Bool("only-coap", false, "Only proxy CoAP requests to HTTP and not the other way around")
+	onlyHTTP     = flag.Bool("only-http", false, "Only proxy HTTP requests to CoAP and not the other way around")
+	noEncryption = flag.Bool("disable-encryption", false, "Disable noise encryption")
+	debugLog     = flag.Bool("debug-log", false, "Output debug logs")
+	mapsDir      = flag.String("maps-dir", "maps", "Directory in which the JSON maps live")
+	coapTarget   = flag.String("coap-target", "", "Force the host+port of the CoAP server to talk to")
+	httpTarget   = flag.String("http-target", "http://127.0.0.1:8008", "Force the host+port of the HTTP server to talk to")
+	coapPort     = flag.String("coap-port", "5683", "The CoAP port to listen on")
+	httpPort     = flag.String("http-port", "8888", "The HTTP port to listen on")
 
 	// Env flags
 	_, dumpPayloads       = os.LookupEnv("PROXY_DUMP_PAYLOADS")
@@ -587,7 +588,7 @@ func listenAndServe(addr string, network string, handler coap.Handler, comp coap
 		BlockWiseTransfer:    &blockWiseTransfer,
 		BlockWiseTransferSzx: &blockWiseTransferSzx,
 		MaxMessageSize:       ^uint32(0),
-		Encryption:           true,
+		Encryption:           !(*noEncryption),
 		KeyStore:             keyStore,
 		Compressor:           comp,
 		RetriesQueue:         retriesQueue,
@@ -606,7 +607,7 @@ func dialTimeout(network, address string, timeout time.Duration) (*coap.ClientCo
 		BlockWiseTransfer:    &blockWiseTransfer,
 		BlockWiseTransferSzx: &blockWiseTransferSzx,
 		MaxMessageSize:       ^uint32(0),
-		Encryption:           true,
+		Encryption:           !(*noEncryption),
 		KeyStore:             keyStore,
 		Compressor:           compressor,
 		RetriesQueue:         retriesQueue,
