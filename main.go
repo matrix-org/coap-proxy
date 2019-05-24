@@ -65,7 +65,9 @@ type route struct {
 // coap-proxy instance. We keep a map of these for timeout tracking purposes.
 type openConn struct {
 	*coap.ClientConn
-	lastMsg time.Time
+	lastMsg    time.Time
+	killswitch chan bool
+	dead       bool
 }
 
 // Patterns for identifying arguments in Matrix API endpoint query paths
@@ -91,7 +93,6 @@ var (
 	httpPort     = flag.String("http-port", "8888", "The HTTP port to listen on")
 
 	// Env flags
-	_, dumpPayloads       = os.LookupEnv("PROXY_DUMP_PAYLOADS")
 	jaegerHost, useJaeger = os.LookupEnv("SYNAPSE_JAEGER_HOST")
 
 	fedAuthPrefix = "X-Matrix origin="
@@ -596,6 +597,11 @@ func listenAndServe(addr string, network string, handler coap.Handler, comp coap
 	return server.ListenAndServe()
 }
 
+func (c *openConn) Close() error {
+	c.killswitch <- true
+	return c.ClientConn.Close()
+}
+
 // dialTimeout is a function that dials (connects to) a CoAP server as a CoAP
 // client and times out on a given timeout.Duration.
 func dialTimeout(network, address string, timeout time.Duration) (*coap.ClientConn, error) {
@@ -613,6 +619,52 @@ func dialTimeout(network, address string, timeout time.Duration) (*coap.ClientCo
 		RetriesQueue:         retriesQueue,
 	}
 	return client.Dial(address)
+}
+
+// resetConn is a function that given a CoAP target (address and port), closes
+// any existing connections to it and opens a new one.
+func resetConn(target string) (*openConn, error) {
+	if c, exists := conns[target]; exists {
+		common.Debugf("Closing UDP connection to %s", target)
+		c.Close()
+	}
+
+	common.Debugf("Creating new UDP connection to %s", target)
+	return newOpenConn(target)
+}
+
+func newOpenConn(target string) (c *openConn, err error) {
+	c = new(openConn)
+	if c.ClientConn, err = dialTimeout("udp", target, 300*time.Second); err != nil {
+		return
+	}
+	c.killswitch = make(chan bool)
+
+	//go c.heartbeat()
+
+	return
+}
+
+func (c *openConn) heartbeat() {
+	for {
+		// Wait before sending the first heatbeat so that the handshake and the
+		// first exchange can happen.
+		select {
+		case <-c.killswitch:
+			common.Debugf("Got killswitch signal for connection to %s", c.ClientConn.RemoteAddr().String())
+			return
+		case <-time.After(30 * time.Second):
+			common.Debugf("Sending heartbeat to %s", c.ClientConn.RemoteAddr().String())
+		}
+
+		if err := c.ClientConn.Ping(10 * time.Second); err != nil {
+			common.Debugf("Connection to %s is dead", c.ClientConn.RemoteAddr().String())
+			c.dead = true
+			return
+		}
+
+		common.Debugf("Connection to %s is alive", c.ClientConn.RemoteAddr().String())
+	}
 }
 
 // argsAndRouteFromPath is a function that returns the routeID (encoded integer
@@ -1002,10 +1054,11 @@ func sendCoAPRequest(
 	// defer c.Close()
 
 	// If there is an existing connection, use it, otherwise provision a new one
-	if c, exists = conns[target]; !exists {
+	if c, exists = conns[target]; !exists || (c != nil && c.dead) {
 		if c, err = resetConn(target); err != nil {
 			return
 		}
+		println(c)
 		// } else if time.Now().Add(-180 * time.Second).After(c.lastMsg) {
 		// 	// Reset an existing connection if the latest message sent is older than
 		// 	// go-coap's syncTimeout.
@@ -1126,25 +1179,6 @@ func sendCoAPRequest(
 	c.lastMsg = time.Now()
 
 	return pl, res.Code(), err
-}
-
-// resetConn is a function that given a CoAP target (address and port), closes
-// any existing connections to it and opens a new one.
-func resetConn(target string) (c *openConn, err error) {
-	var exists bool
-	if c, exists = conns[target]; exists {
-		common.Debugf("Closing UDP connection to %s", target)
-		c.Close()
-	}
-
-	c = new(openConn)
-	common.Debugf("Creating new UDP connection to %s", target)
-	if c.ClientConn, err = dialTimeout("udp", target, 300*time.Second); err != nil {
-		return
-	}
-	conns[target] = c
-
-	return
 }
 
 // statusCoAPToHTTP is a function that converts a CoAP status code to its
