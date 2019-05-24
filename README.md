@@ -3,7 +3,7 @@
 ## Introduction
 
 coap-proxy is a **proof of concept experiment** for converting normal Matrix HTTPS+JSON
-traffic into an ultra-low-bandwidth CoAP+CBOR+Deflate+Noise+UDP network transport.
+traffic into an ultra-low-bandwidth CoAP+CBOR+Flate+Noise+UDP network transport.
 The resulting transport typically uses 35x-70x less bandwidth than HTTPS+JSON, and
 attempts to fit typical Matrix transactions into a single roundtrip on a 100bps network link.
 
@@ -12,8 +12,7 @@ which implements Noise-based encryption, compression hooks and retry semantics.
 
 More details on the transport can be found in our
 "Breaking the 100 bits per second barrier with Matrix" FOSDEM 2019 talk:
-https://fosdem.org/2019/schedule/event/matrix/ -
-[slides available here](https://matrix.org/blog/wp-content/uploads/2019/02/2019-02-03-FOSDEM-Low-Bandwidth.pdf)
+https://matrix.org/blog/2019/03/12/breaking-the-100bps-barrier-with-matrix-meshsim-coap-proxy/
 
 The typical way to run coap-proxy is via docker using the [meshsim](https://github.com/matrix-org/meshsim)
 network simulator, which fires up docker containers in a simulated bad network environment
@@ -24,7 +23,7 @@ server-server traffic.
 
 As a proof-of-concept, coap-proxy currently has some major limitations:
 
- * Encryption using [Noise](https://noise-protocol.org) is highly experimental:
+ * Encryption using [Noise](https://noiseprotocol.org) is highly experimental:
    * The transport layer security here is entirely custom and hand-wrapped
      (to optimise for bandwidth at any cost), and **should not yet be trusted
      as secure or production ready**, nor has it been audited or reviewed or fully tested.
@@ -34,6 +33,8 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
      Instead we should probably be using CoAP's OSCORE rather than creating our own thing;
      see https://tools.ietf.org/id/draft-mattsson-lwig-security-protocol-comparison-00.html
    * Security is trust-on-first-use (although theoretically could support pre-shared static certificates)
+   * IK handshakes are currently not being used due to them making go-coap's handshake state machine unreliable,
+     which needs to be investigated in the future
  * coap-proxy currently assumes it runs under a trusted private network (i.e. not the internet).  This means:
    * Signatures and checks are removed from the Matrix S2S API to save bandwidth (given the network is assumed trustworthy)
    * Minimal bandwidth depends on picking predictable compact hostnames which compress easily
@@ -50,6 +51,7 @@ As a proof-of-concept, coap-proxy currently has some major limitations:
    * After a sync timeout, the session cache is not updated with the source port of the new UDP flow,
      and so will try to send responses to the old source port.
  * No IPv6 support.
+ * access_tokens currently suck up bandwidth on every request. We should swap them out for PSKs or similar.
 
 Development of coap-proxy is dependent on commercial interest - please contact
 `support at vector.im` if you're interested in a production grade coap-proxy!
