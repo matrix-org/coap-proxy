@@ -69,5 +69,12 @@ func resetConn(target string) (*openConn, error) {
 	}
 
 	common.Debugf("Creating new UDP connection to %s", target)
-	return newOpenConn(target)
+
+	c, err := newOpenConn(target)
+	if err != nil {
+		return nil, err
+	}
+
+	conns[target] = c
+	return c, nil
 }
