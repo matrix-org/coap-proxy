@@ -10,6 +10,12 @@ import (
 	"github.com/matrix-org/coap-proxy/common"
 )
 
+const (
+	matrixClientPrefix     = "/_matrix/client"
+	matrixMediaPrefix      = "/_matrix/media"
+	matrixFederationPrefix = "/_matrix/federation"
+)
+
 // route is a struct that represents items in the routes.json file, which maps
 // an endpoint to an ID for compression purposes.
 type route struct {
@@ -232,4 +238,8 @@ func compressReqArg(pattern, arg string) string {
 	common.Debugf("Compressing special arg %s (value: %s) into %s", pattern, oldVal, arg)
 
 	return arg
+}
+
+func isClientRoute(path string) bool {
+	return (strings.HasPrefix(path, matrixClientPrefix) || strings.HasPrefix(path, matrixMediaPrefix))
 }

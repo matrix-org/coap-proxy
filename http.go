@@ -104,10 +104,9 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// Add authentication header to query parameters of CoAP request
 	var origin *string
 	if authHeader := r.Header.Get("Authorization"); len(authHeader) > 0 {
-		var k, v string
-		// Assume that the CoAP target will only be forced for the CS API
-		// TODO: More flexibility
-		if len(*coapTarget) > 0 {
+		if isClientRoute(r.URL.Path) {
+			var k, v string
+
 			k = "access_token"
 			v = strings.Replace(authHeader, "Bearer ", "", 1)
 

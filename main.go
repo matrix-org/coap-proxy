@@ -66,6 +66,8 @@ var (
 )
 
 func init() {
+	log.Printf("Starting up...")
+
 	flag.Parse()
 
 	if *debugLog {
@@ -107,6 +109,8 @@ func init() {
 	}, cbor); err != nil {
 		panic(err)
 	}
+
+	log.Println("Finished loading compression maps")
 }
 
 func main() {

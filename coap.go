@@ -259,16 +259,18 @@ func sendCoAPRequest(
 
 	// If there is an existing connection, use it, otherwise provision a new one
 	if c, exists = conns[target]; !exists || (c != nil && c.dead) {
+		common.Debugf("No usable connection to %s, initiating a new one", target)
 		if c, err = resetConn(target); err != nil {
 			return
 		}
-		println(c)
 		// } else if time.Now().Add(-180 * time.Second).After(c.lastMsg) {
 		// 	// Reset an existing connection if the latest message sent is older than
 		// 	// go-coap's syncTimeout.
 		// 	if c, err = resetConn(target); err != nil {
 		// 		return
 		// 	}
+	} else if exists {
+		common.Debugf("Reusing existing connection to %s", target)
 	}
 
 	// Record the destination in the trace
