@@ -44,11 +44,11 @@ var (
 	coapBindHost = flag.String("coap-bind-host", "0.0.0.0", "The COAP host to listen on")
 	httpPort     = flag.String("http-port", "8888", "The HTTP port to listen on")
 
-	fedAuthPrefix = "X-Matrix"
+	fedAuthPrefix = "X-Matrix origin="
 	fedAuthSuffix = ",key=\"\",sig=\"\""
 
 	routePatternRgxp = regexp.MustCompile("{[^/]+}")
-	fedAuthRgxp      = regexp.MustCompile(fedAuthPrefix + " origin=([^,]+)")
+	fedAuthRgxp      = regexp.MustCompile(fedAuthPrefix + "([^,]+)")
 
 	// Slices to keep parsed json dictionary data in
 	routes      = make([]route, 0)

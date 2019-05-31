@@ -129,7 +129,7 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 			path = path + sep + k + "=" + v
 		} else {
-			submatch := fedAuthRgxp.FindAllStringSubmatch(authHeader, 1)[0][0]
+			submatch := fedAuthRgxp.FindAllStringSubmatch(authHeader, 1)[0][1]
 			origin = &submatch
 		}
 	}
