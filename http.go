@@ -98,6 +98,16 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// Unmarshal request body JSON
 	var decodedBody interface{}
 	if len(body) > 0 {
+		contentType := r.Header.Get("content-type")
+		common.Debugf("Got request with content type: %s", contentType)
+
+		if contentType != "application/json" {
+			common.Debug("Got non-json request, ignoring")
+
+			w.WriteHeader(502)
+			return
+		}
+
 		decodedBody = json.Decode(body)
 	}
 
@@ -210,6 +220,19 @@ func sendHTTPRequest(
 		ext.Error.Set(span, true)
 		span.LogFields(olog.Error(err))
 		return
+	}
+
+	if len(resBody) > 0 {
+		contentType := hRes.Header.Get("content-type")
+		common.Debugf("Got response with content type: %s", contentType)
+
+		if contentType != "application/json" {
+			common.Debug("Got non-json request, ignoring")
+
+			statusCode = 502
+			resBody = []byte{}
+			return
+		}
 	}
 
 	// Record response status code in OpenTracing
