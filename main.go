@@ -47,7 +47,7 @@ var (
 	fedAuthSuffix = ",key=\"\",sig=\"\""
 
 	routePatternRgxp = regexp.MustCompile("{[^/]+}")
-	fedAuthRgxp      = regexp.MustCompile(fedAuthPrefix + "origin=([^,]+)")
+	fedAuthRgxp      = regexp.MustCompile(fedAuthPrefix + "([^,]+)")
 
 	// Slices to keep parsed json dictionary data in
 	routes      = make([]route, 0)
