@@ -160,6 +160,7 @@ func ServeCOAP(w coap.ResponseWriter, req *coap.Request) {
 
 	common.Debugf("CoAP - %X: Sending HTTP request", req.Msg.Token())
 	common.Debug("routeName", routeName)
+	common.Debugf("COAP options %v", req.Msg.AllOptions())
 
 	// Encode the CBOR-decoded body into JSON
 	if len(pl) > 0 {
@@ -172,7 +173,7 @@ func ServeCOAP(w coap.ResponseWriter, req *coap.Request) {
 	// XXX: HACK: Use the coap library's MaxAge option to store origin (due to the
 	// lib ignoring unknown options). Do not rely on this to remain functional across
 	// lib upgrades.
-	originOpt := m.Option(coap.MaxAge)
+	originOpt := m.Option(coap.LocationPath)
 	common.Debugf("opt: %v", originOpt)
 
 	// TODO: Handle fs-specific stuff
@@ -343,7 +344,7 @@ func sendCoAPRequest(
 		// XXX: HACK: Use the coap library's MaxAge option to store origin (due to the
 		// lib ignoring unknown options). Do not rely on this to remain functional across
 		// lib upgrades.
-		req.SetOption(coap.MaxAge, *origin)
+		req.SetOption(coap.LocationPath, *origin)
 	}
 
 	// This option should be set last, to aid compression of the packet
