@@ -1,6 +1,7 @@
 package main
 
 import (
+	"sync"
 	"time"
 
 	"github.com/matrix-org/coap-proxy/common"
@@ -10,7 +11,8 @@ import (
 
 // Map of open connections with the host address as the key. Allows us to keep
 // track of the last time a message was sent for timeout purposes.
-var conns map[string]*openConn
+var conns map[string]*sync.Pool
+var connsLock sync.Mutex
 
 // openConn is a struct that represents an open CoAP connection to another
 // coap-proxy instance. We keep a map of these for timeout tracking purposes.
@@ -60,12 +62,22 @@ func (c *openConn) heartbeat() {
 	}
 }
 
-// resetConn is a function that given a CoAP target (address and port), closes
-// any existing connections to it and opens a new one.
-func resetConn(target string) (*openConn, error) {
-	if c, exists := conns[target]; exists {
-		common.Debugf("Closing UDP connection to %s", target)
-		_ = c.Close()
+// getConn is a function that given a CoAP target (address and port), gets
+// an existing idle connection or creates a new one.
+func getConn(target string) (*openConn, error) {
+	connsLock.Lock()
+	defer connsLock.Unlock()
+
+	pool := conns[target]
+	if pool == nil {
+		pool = &sync.Pool{}
+		conns[target] = pool
+	}
+
+	conn := pool.Get()
+	if conn != nil {
+		common.Debugf("Reusing UDP connection to %s", target)
+		return conn.(*openConn), nil
 	}
 
 	common.Debugf("Creating new UDP connection to %s", target)
@@ -75,6 +87,20 @@ func resetConn(target string) (*openConn, error) {
 		return nil, err
 	}
 
-	conns[target] = c
 	return c, nil
+}
+
+func putConn(target string, conn *openConn) {
+	connsLock.Lock()
+	defer connsLock.Unlock()
+
+	common.Debugf("Adding UDP connection to %s to pool", target)
+
+	pool := conns[target]
+	if pool == nil {
+		pool = &sync.Pool{}
+		conns[target] = pool
+	}
+
+	pool.Put(conn)
 }

@@ -77,7 +77,7 @@ func init() {
 		common.EnableDebugLogging()
 	}
 
-	conns = make(map[string]*openConn)
+	conns = make(map[string]*sync.Pool)
 
 	var err error
 
@@ -155,11 +155,11 @@ func main() {
 	wg.Wait()
 
 	// Close all open CoAP connections on program termination
-	for _, c := range conns {
-		if err := c.Close(); err != nil {
-			panic(err)
-		}
-	}
+	// for _, c := range conns {
+	// 	if err := c.Close(); err != nil {
+	// 		panic(err)
+	// 	}
+	// }
 }
 
 func httpRecoverWrap(h http.Handler) http.Handler {
