@@ -18,11 +18,13 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"log"
 	"net/http"
 	"path/filepath"
 	"regexp"
+	"runtime/debug"
 	"sync"
 
 	"github.com/matrix-org/coap-proxy/common"
@@ -132,7 +134,7 @@ func main() {
 			defer wg.Done()
 			coapAddr := *coapBindHost + ":" + *coapPort
 			log.Printf("Setting up CoAP to HTTP proxy on %s", coapAddr)
-			log.Println(listenAndServe(coapAddr, "udp", coap.HandlerFunc(ServeCOAP), compressor))
+			log.Println(listenAndServe(coapAddr, "udp", coapRecoverWrap(coap.HandlerFunc(ServeCOAP)), compressor))
 			log.Println("CoAP to HTTP proxy exited")
 		}()
 	}
@@ -145,7 +147,7 @@ func main() {
 			defer wg.Done()
 			httpAddr := "0.0.0.0:" + *httpPort
 			log.Printf("Setting up HTTP to CoAP proxy on %s", httpAddr)
-			log.Println(http.ListenAndServe(httpAddr, h))
+			log.Println(http.ListenAndServe(httpAddr, httpRecoverWrap(h)))
 			log.Println("HTTP to CoAP proxy exited")
 		}()
 	}
@@ -158,4 +160,49 @@ func main() {
 			panic(err)
 		}
 	}
+}
+
+func httpRecoverWrap(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		var err error
+		defer func() {
+			r := recover()
+			if r != nil {
+				switch t := r.(type) {
+				case string:
+					err = errors.New(t)
+				case error:
+					err = t
+				default:
+					err = errors.New("Unknown error")
+				}
+				log.Printf("Recovered from panic: %v", err)
+				log.Println("Stacktrace:\n" + string(debug.Stack()))
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+			}
+		}()
+		h.ServeHTTP(w, r)
+	})
+}
+
+func coapRecoverWrap(h coap.Handler) coap.Handler {
+	return coap.HandlerFunc(func(w coap.ResponseWriter, r *coap.Request) {
+		var err error
+		defer func() {
+			r := recover()
+			if r != nil {
+				switch t := r.(type) {
+				case string:
+					err = errors.New(t)
+				case error:
+					err = t
+				default:
+					err = errors.New("Unknown error")
+				}
+				log.Printf("Recovered from panic: %v", err)
+				log.Println("Stacktrace:\n" + string(debug.Stack()))
+			}
+		}()
+		h.ServeCOAP(w, r)
+	})
 }

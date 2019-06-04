@@ -349,9 +349,16 @@ func sendCoAPRequest(
 
 	// This option should be set last, to aid compression of the packet
 	req.SetOption(coap.ContentFormat, coap.AppOctets)
+
+	if len(path) > 250 {
+		// We can't send long paths, so lets bail out here
+		err = errors.New("Path too long: " + path)
+		return
+	}
+
 	req.SetPathString(path)
 
-	log.Printf("HTTP: Sending CoAP request with token %X", req.Token())
+	log.Printf("HTTP: Sending CoAP request with token %X (path: %v)", req.Token(), path)
 
 	// Send the CoAP request and receive a response
 	common.Debugf("opts %v", req.AllOptions())

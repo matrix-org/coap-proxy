@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"net/url"
 	"regexp"
@@ -32,7 +33,14 @@ func argsAndRouteFromPath(
 ) (args []string, trailingSlash bool, routeID int, err error) {
 	deconstructedPath := strings.Split(path, "/")
 
+	common.Debugf("deconstructedPath %v", deconstructedPath)
+
 	var r int64
+	if len(deconstructedPath) == 0 {
+		err = errors.New("Got empty path")
+		return
+	}
+
 	if deconstructedPath[0] == "" {
 		r, err = strconv.ParseInt(deconstructedPath[1], 32, 64)
 		routeID = int(r)
@@ -57,9 +65,9 @@ func argsAndRouteFromPath(
 // they have the same mapping between paths and IDs, then the proxy on the other
 // end knows what the correct path is.
 func identifyRoute(path, method string) (routeID int, found bool) {
-	patternMatcher := "[^/]+"
+	patternMatcher := "[^/]*"
 	for id, route := range routes {
-		routeRgxpBase := route.Path
+		routeRgxpBase := "^" + route.Path + "$"
 		matches := routePatternRgxp.FindAllString(routeRgxpBase, -1)
 		for _, match := range matches {
 			routeRgxpBase = strings.Replace(routeRgxpBase, match, patternMatcher, -1)
