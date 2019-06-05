@@ -264,6 +264,8 @@ func sendCoAPRequest(
 	defer (func() {
 		if err == nil {
 			putConn(target, c)
+		} else {
+			c.Close()
 		}
 	})()
 
