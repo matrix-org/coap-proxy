@@ -4,6 +4,8 @@ github.com/flynn/noise v0.0.0-20180327030543-2492fe189ae6 h1:u/UEqS66A5ckRmS4yNp
 github.com/flynn/noise v0.0.0-20180327030543-2492fe189ae6/go.mod h1:1i71OnUq3iUe1ma7Lr6yG6/rjvM3emb6yoL7xLFzcVQ=
 github.com/matrix-org/go-coap v0.0.0-20190530164141-41ffa5653fe1 h1:e40KJpkb0CAI3MWXtmqhYyC9bG7pCCyoOtFNkI++MUo=
 github.com/matrix-org/go-coap v0.0.0-20190530164141-41ffa5653fe1/go.mod h1:5RXA2kXFkk9NKcVfdVXqzKpQ7HPpvZWLrE/hP/PE8Ao=
+github.com/matrix-org/go-coap v0.0.0-20190605161234-2b2386eef86a h1:VaziGp6D3lTT8Q7faqFed4IyohlO+ixcpmTH5y8FKRU=
+github.com/matrix-org/go-coap v0.0.0-20190605161234-2b2386eef86a/go.mod h1:5RXA2kXFkk9NKcVfdVXqzKpQ7HPpvZWLrE/hP/PE8Ao=
 github.com/opentracing/opentracing-go v1.1.0 h1:pWlfV3Bxv7k65HYwkikxat0+s3pV4bsqf19k25Ur8rU=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=

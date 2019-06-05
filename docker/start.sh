@@ -1,6 +1,10 @@
 #!/bin/bash
 
-base_cmd="/proxy/coap-proxy --maps-dir /proxy/maps --debug-log --http-target http://synapse:8008 --disable-encryption"
+base_cmd="/proxy/coap-proxy -maps-dir /proxy/maps -debug-log -http-target http://synapse:8008"
+
+if [ -z "$COAP_ENABLE_ENCRYPTION" ]; then
+    base_cmd="$base_cmd -disable-encryption"
+fi
 
 if [ -n "$PROXY_COAP_TARGET" ]; then
     $base_cmd --coap-target $PROXY_COAP_TARGET

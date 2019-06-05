@@ -77,6 +77,12 @@ func init() {
 		common.EnableDebugLogging()
 	}
 
+	if *noEncryption {
+		log.Printf("Encryption disabled")
+	} else {
+		log.Printf("Encryption enabled")
+	}
+
 	conns = make(map[string]*openConn)
 
 	var err error
