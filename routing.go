@@ -192,13 +192,13 @@ func genCompressedPath(uri *url.URL, routeID int) string {
 		} else {
 			path = fmt.Sprintf("/%s", strconv.FormatInt(int64(routeID), 32))
 		}
+
+		splitURI := strings.Split(uri.String(), "?")
+		if splitURI[0][len(splitURI[0])-1:] == "/" {
+			path = path + "/"
+		}
 	} else {
 		path = uri.Path
-	}
-
-	s := strings.Split(uri.String(), "?")
-	if s[0][len(s[0])-1:] == "/" {
-		path = path + "/"
 	}
 
 	if len(uri.RawQuery) > 0 {
